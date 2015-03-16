@@ -34,11 +34,14 @@ coreos:
       content: |
         [Unit]
         Description=VMWare Tools
-        After=systemd-networkd.service
+        After=docker.service
+        Requires=docker.service
+
         [Service]
         Restart=always
         TimeoutStartSec=1200s
         ExecStartPre=-/usr/bin/docker rm vmware-tools
+        ExecStartPre=/usr/bin/docker pull corfr/vmware-tools
         ExecStart=/usr/bin/docker run --net=host --privileged --name vmware-tools corfr/vmware-tools
         ExecStop=-/usr/bin/docker stop vmware-tools
         ExecStopPost=-/usr/bin/docker rm vmware-tools
