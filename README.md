@@ -7,6 +7,9 @@ This image is intended to provide VMWare Tools for CoreOS running under *VMWare 
 You have run it in privileged mode to give access to the host system and I prefere to run it with 
 option `--net=host` to see all IP addresses of host in vSphere client.
 
+### Current version
+Version = 9.4.11
+
 ### Done
 * Quiesce file system to make consistent snapshots
 * vSphere can "see" all VM properties from CoreOS: hostname, IP addresses, etc...
@@ -45,3 +48,4 @@ coreos:
 ```
 docker run -d --net=host --privileged sergeyzh/vmware-tools
 ```
+
