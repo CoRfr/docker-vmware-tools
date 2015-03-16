@@ -39,13 +39,13 @@ coreos:
         Restart=always
         TimeoutStartSec=1200s
         ExecStartPre=-/usr/bin/docker rm vmware-tools
-        ExecStart=/usr/bin/docker run --net=host --privileged --name vmware-tools sergeyzh/vmware-tools
+        ExecStart=/usr/bin/docker run --net=host --privileged --name vmware-tools corfr/vmware-tools
         ExecStop=-/usr/bin/docker stop vmware-tools
         ExecStopPost=-/usr/bin/docker rm vmware-tools
 ```
 
 ## Manual run
 ```
-docker run -d --net=host --privileged sergeyzh/vmware-tools
+docker run -d --net=host --privileged corfr/vmware-tools
 ```
 
