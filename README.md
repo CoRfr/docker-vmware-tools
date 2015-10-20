@@ -8,7 +8,7 @@ You have run it in privileged mode to give access to the host system and I prefe
 option `--net=host` to see all IP addresses of host in vSphere client.
 
 ### Current version
-Version = 9.4.12
+Version = 9.4.15
 
 ### Done
 * Quiesce file system to make consistent snapshots
