@@ -1,8 +1,14 @@
-FROM sergeyzh/centos6-epel
+FROM centos:6
 
-MAINTAINER Sergey Zhukov, sergey@jetbrains.com
+MAINTAINER Bertrand Roussel <broussel@sierrawireless.com>
 
+# Add EPEL
+RUN yum -y install epel-release
+
+# Add vmware-tools
+ENV VSPHERE_VERSION 5.5
 ADD vmware-tools.repo /etc/yum.repos.d/
+RUN sed -i "s/#VSPHERE_VERSION#/${VSPHERE_VERSION}/g" /etc/yum.repos.d/vmware-tools.repo
 RUN yum install -y vmware-tools-esx-nox
 
 ADD scripts /etc/vmware-tools/scripts
